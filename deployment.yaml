@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juanberger-deployment
+  labels:
+    app: juanberger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: juanberger
+  template:
+    metadata:
+      labels:
+        app: juanberger
+    spec:
+      containers:
+        - name: juanberger
+          image: localhost:5000/juanberger:latest
+          ports:
+            - containerPort: 8080
